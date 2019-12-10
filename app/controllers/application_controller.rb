@@ -1,5 +1,3 @@
-#require_relative './config/environment'
-
 class ApplicationController < Sinatra::Base
   configure do
     set :views, Proc.new { File.join(root, "../views/") }
@@ -8,7 +6,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-  	"Hello World"
   end
-
+  
 end
