@@ -6,6 +6,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+  	erb :'registrations/signup'
+  	#{}"Hello World"
   end
   
 end

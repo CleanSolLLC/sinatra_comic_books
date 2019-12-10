@@ -1,6 +1,6 @@
-class ErrorHandling < Sinatra::Base
+class ErrorHandling < ApplicationController
 
   get '/errors' do
-	"this is definitely an error"
+	erb :errors
   end
 end
