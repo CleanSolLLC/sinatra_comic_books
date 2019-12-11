@@ -14,6 +14,7 @@ group :test, :development do
  gem 'pry'
  gem 'pry-nav'
  gem 'byebug'
+ gem 'bcrypt'
 end
 
 
