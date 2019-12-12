@@ -2,23 +2,41 @@ require 'byebug'
 require 'pry'
 class UserController < ApplicationController
 
-  get '/signup' do
+  get '/registrations/signup' do
 	erb :'registrations/signup'
   end
 
-  post '/registrations' do
+   get '/sessions/login' do
+  	erb :'sessions/login'
+  end
+
+  post '/login' do
+  	user = User.find_by(username: params[:username])
+  	if user && user.authenticate(params[:password])
+  		session[:user_id] = user.id
+  		redirect '/users/home'
+  	else
+    	@error = 'Invalid user name or password'
+    	erb :error
+  	end
+  end
+
+
+  post '/signup' do
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect 'users/home'
     else
-    	@error = 'error encountered'
+    	@error = 'error encountered could not commit to database'
     	erb :error
     end
   end
 
-  get '/sessions' do
-  	user[:session] = @user.id
+  get '/users/home' do
+
+    @user = User.find(session[:user_id])
+    erb :'/users/home'
   end
   
   private
