@@ -1,22 +1,27 @@
 class ComicBookController < ApplicationController
 
-  get "/comics" do
-    @comic = Comic.all
+  get "/comic" do
+    @comics = Comic.all
     erb :"/comics/index"
   end
 
-   get "/comics/new" do
+   get "/comic/new" do
   	erb :"/comics/new"
   end
 
-  post "/comics" do
+  post "/comic" do
     comic = Comic.new(user_params)
     if comic.save
-      redirect "/comics"
+      redirect "/"
     else
       @error = "error encountered could not commit to database"
       erb :error
     end
+  end
+
+  get "/comic/:id" do
+    @comic = Comic.find_by(params[:id])
+    erb :"/comics/show"
   end
   
   private
@@ -24,6 +29,6 @@ class ComicBookController < ApplicationController
   	{publisher: params[:publisher], year: params[:year],
      issue_num: params[:issue_num], cover_price: params[:cover_price],
      title: params[:title], subtitle: params[:subtitle],
-     content: params[:content]}
+     condition: params[:condition], html_link_to_dealer: params[:html_link_to_dealer]}
   end
 end
