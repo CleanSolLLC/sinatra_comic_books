@@ -1,0 +1,7 @@
+<h2> Here is a list of your comics!</h2>
+
+<ul>
+<% @comic.each do |comic| %>
+	<li><a href = "/comic/<%= comic.id%>"><%= comic.title %></a></li>
+<%end%>
+</ul> 
