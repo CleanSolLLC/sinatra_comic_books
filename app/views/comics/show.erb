@@ -9,10 +9,16 @@
 	<%= @comic.publisher %>,&#169;<%= @comic.year %><br>
 	<%= @comic.cover_price %><br>
 	<%= @comic.condition %><br>
-	<%= @comic.html_link_to_dealer %><br>
+	<a href = "<%= @comic.html_link_to_dealer %>">Value of Comic:</a><br>
 </text>
+
+<p>Select one of the following:</p>
+<a href="/comic/new">Add Comic Book</a><p>
 </body>
 </html>
+
+
+<!--add href link to add, edit or delete comic->
 
 
 

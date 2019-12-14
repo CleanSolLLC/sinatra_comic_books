@@ -12,7 +12,7 @@ class ComicBookController < ApplicationController
   post "/comic" do
     comic = Comic.new(user_params)
     if comic.save
-      redirect "/"
+      redirect "/comic"
     else
       @error = "error encountered could not commit to database"
       erb :error
@@ -20,7 +20,7 @@ class ComicBookController < ApplicationController
   end
 
   get "/comic/:id" do
-    @comic = Comic.find_by(params[:id])
+    @comic = Comic.find(params[:id])
     erb :"/comics/show"
   end
   
