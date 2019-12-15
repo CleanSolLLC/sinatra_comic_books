@@ -6,15 +6,21 @@
 <body>
 	<h2>Here is your comic book listing!</h2>
 	<h3><%= @comic.title %> - <%= @comic.subtitle %></h3>
-	<%= @comic.publisher %> &#169;<%= @comic.year %><br>
-	<%= @comic.cover_price %><br>
-	<%= @comic.condition %><br>
-	<a href = "<%= @comic.html_link_to_dealer %>">Value of Comic:</a><br>
-</text>
+	Publisher:   <%= @comic.publisher %> &#169;<%= @comic.year %><br>
+	Issue Num :  <%= @comic.issue_num %><br>
+	Cover Price: <%= @comic.cover_price %><br>
+	Condition of Comic: <%= @comic.condition %><br>
+	<a href = "<%= @comic.html_link_to_dealer %>">Sell Comic Book :</a><br>
 
 <p>Select one of the following:</p>
 <a href="/comic/new">Add A New Comic Book</a><p>
 <a href="/comic/<%=@comic.id%>/edit">Edit This Comic Book</a><p>
+
+  <form action="/comic/<%= @comic.id%>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+
 </body>
 </html>
 

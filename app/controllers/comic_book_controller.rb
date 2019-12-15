@@ -29,7 +29,7 @@ class ComicBookController < ApplicationController
     erb :"/comics/edit"
   end
 
-  patch "/comic/:id" do
+  post "/comic/:id" do
     @comic = Comic.find(params[:id])
     @comic.publisher = params[:publisher]
     @comic.year = params[:year]
@@ -43,6 +43,11 @@ class ComicBookController < ApplicationController
     redirect "/comic/#{@comic.id}"
   end
 
+  post "/comic/:id/delete" do
+    @comic = Comic.find_by(params[:id])
+    @comic.delete
+    redirect to '/comic'
+  end
 
   
   private
