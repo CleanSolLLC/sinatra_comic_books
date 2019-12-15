@@ -23,6 +23,27 @@ class ComicBookController < ApplicationController
     @comic = Comic.find(params[:id])
     erb :"/comics/show"
   end
+
+  get "/comic/:id/edit" do
+    @comic = Comic.find(params[:id])
+    erb :"/comics/edit"
+  end
+
+  patch "/comic/:id" do
+    @comic = Comic.find(params[:id])
+    @comic.publisher = params[:publisher]
+    @comic.year = params[:year]
+    @comic.issue_num = params[:issue_num]
+    @comic.cover_price = params[:cover_price]
+    @comic.title = params[:title]
+    @comic.subtitle = params[:subtitle]
+    @comic.condition = params[:condition]
+    @comic.html_link_to_dealer = params[:html_link_to_dealer]
+    @comic.save
+    redirect "/comic/#{@comic.id}"
+  end
+
+
   
   private
   def user_params

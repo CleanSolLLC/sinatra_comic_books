@@ -6,14 +6,15 @@
 <body>
 	<h2>Here is your comic book listing!</h2>
 	<h3><%= @comic.title %> - <%= @comic.subtitle %></h3>
-	<%= @comic.publisher %>,&#169;<%= @comic.year %><br>
+	<%= @comic.publisher %> &#169;<%= @comic.year %><br>
 	<%= @comic.cover_price %><br>
 	<%= @comic.condition %><br>
 	<a href = "<%= @comic.html_link_to_dealer %>">Value of Comic:</a><br>
 </text>
 
 <p>Select one of the following:</p>
-<a href="/comic/new">Add Comic Book</a><p>
+<a href="/comic/new">Add A New Comic Book</a><p>
+<a href="/comic/<%=@comic.id%>/edit">Edit This Comic Book</a><p>
 </body>
 </html>
 
