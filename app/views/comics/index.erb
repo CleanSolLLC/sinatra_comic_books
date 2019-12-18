@@ -1,7 +1,14 @@
 <h2> Here is a list of your comics!</h2>
 
-<ul>
-<% @comics.each do |comic| %>
-	<li><a href = "/comic/<%= comic.id %>"><%= comic.title %></a></li>
+<%if @comics == [] %>
+<h3>You have no comics listed</h3>  
+	<a href = "/comic/new">Please Enter New Comic</a>
+<%else%>
+	<% @comics.each do |comic| %>
+	    <ul>
+	    	<li><a href = "/comic/<%= comic.id %>"><%= comic.title %></a></li>  
+	         <%end%> 
+	    </ul> 
+	          
 <%end%>
-</ul> 
+	        

@@ -1,2 +1,3 @@
-class Comic < ActiveRecord::Base	
+class Comic < ActiveRecord::Base
+	belongs_to :owner
 end

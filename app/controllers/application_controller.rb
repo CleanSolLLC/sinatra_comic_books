@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
     set :views, Proc.new { File.join(root, "../views/") }
     enable :sessions unless test?
     set :session_secret, 'mission_impossible'
+    
   end
 
   get "/" do

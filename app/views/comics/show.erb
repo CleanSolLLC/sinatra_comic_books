@@ -15,8 +15,9 @@
 <p>Select one of the following:</p>
 <a href="/comic/new">Add A New Comic Book</a><p>
 <a href="/comic/<%=@comic.id%>/edit">Edit This Comic Book</a><p>
-
-  <form action="/comic/<%= @comic.id%>/delete" method="post">
+<a href="/comic/<%=@comic.id%>/delete">Delete This Comic Book</a><p>
+<a href="/logout">Log Out</a><p>	
+  <form action="/comic/<%= @comic.id%>" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="delete">
   </form>

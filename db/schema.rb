@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_14_122636) do
+ActiveRecord::Schema.define(version: 2019_12_16_000049) do
 
   create_table "comics", force: :cascade do |t|
     t.string "publisher"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_14_122636) do
     t.string "subtitle"
     t.string "condition"
     t.string "html_link_to_dealer"
+    t.string "user_id"
   end
 
   create_table "users", force: :cascade do |t|

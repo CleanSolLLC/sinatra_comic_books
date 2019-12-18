@@ -1,3 +1,5 @@
+require 'pry-nav'
+require 'byebug'
 class ComicBookController < ApplicationController
 
   get "/comic" do
@@ -29,7 +31,7 @@ class ComicBookController < ApplicationController
     erb :"/comics/edit"
   end
 
-  post "/comic/:id" do
+  patch "/comic/:id" do
     @comic = Comic.find(params[:id])
     @comic.publisher = params[:publisher]
     @comic.year = params[:year]
@@ -43,7 +45,7 @@ class ComicBookController < ApplicationController
     redirect "/comic/#{@comic.id}"
   end
 
-  post "/comic/:id/delete" do
+  delete "/comic/:id" do
     @comic = Comic.find_by(params[:id])
     @comic.delete
     redirect to '/comic'
