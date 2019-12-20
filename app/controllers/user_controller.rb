@@ -9,14 +9,12 @@ class UserController < ApplicationController
   end
 
   post '/login' do
-  	user = User.find_by(email: params[:email])
-  	if user && user.authenticate(params[:password])
-  		session[:user_id] = @user.id if !is_logged_in?(session)
-  		redirect "/users/home"
+  	@user = User.find_by(email: params[:email])
+  	if @user && @user.authenticate(params[:password])
+  		session[:user_id] = @user.id if !is_logged_in?
+  		redirect '/users'
   	else
-    	@error = 'Invalid user name or password'
-    	erb :error
-
+      redirect '/registrations/signup', flash[:error] = "User does not exist please sign up"  
   	end
   end
 
@@ -37,24 +35,18 @@ class UserController < ApplicationController
     redirect '/'
   end
 
-  get '/users/home' do
-
-    @user = User.find(session[:user_id])
-
-    erb :'/users/home'
+  def current_user
+     User.find(session[:user_id])
   end
-  
-  private
+
+  def is_logged_in?
+     !!session[:user_id]
+  end
+
+
+
+private
   def user_params
   	{username: params[:username], email: params[:email], password: params[:password]}
   end
-
-  def current_user(session)
-    User.find(session[:user_id])
-  end
-
-  def is_logged_in?(session)
-    !!session[:user_id]
-  end 
-
 end

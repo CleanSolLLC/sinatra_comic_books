@@ -57,6 +57,7 @@ class ComicBookController < ApplicationController
   	{publisher: params[:publisher], year: params[:year],
      issue_num: params[:issue_num], cover_price: params[:cover_price],
      title: params[:title], subtitle: params[:subtitle],
-     condition: params[:condition], html_link_to_dealer: params[:html_link_to_dealer]}
+     condition: params[:condition], html_link_to_dealer: params[:html_link_to_dealer], :user_id => session[:user_id]}
+     #should use helper method to determine single source of truth
   end
 end

@@ -27,6 +27,8 @@ GEM
     pry-nav (0.3.0)
       pry (>= 0.9.10, < 0.13.0)
     rack (2.0.7)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (2.0.7)
       rack
     require_all (3.0.0)
@@ -38,6 +40,10 @@ GEM
     sinatra-activerecord (2.0.14)
       activerecord (>= 3.2)
       sinatra (>= 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
+    sinatra-redirect-with-flash (0.2.1)
+      sinatra (>= 1.0.0)
     sqlite3 (1.4.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -54,8 +60,11 @@ DEPENDENCIES
   byebug
   pry
   pry-nav
+  rack-flash3
   require_all
   sinatra-activerecord
+  sinatra-flash
+  sinatra-redirect-with-flash
   sqlite3
 
 BUNDLED WITH

@@ -9,6 +9,9 @@ gem 'sqlite3'
 gem 'activerecord', :require =>"active_record"
 gem 'sinatra-activerecord', :require =>"sinatra/activerecord"
 gem 'require_all'
+gem 'sinatra-redirect-with-flash'
+gem 'sinatra-flash'
+gem 'rack-flash3'
 
 group :test, :development do
  gem 'pry'
