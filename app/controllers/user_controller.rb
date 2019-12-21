@@ -19,13 +19,16 @@ class UserController < ApplicationController
 
   post "/signup" do
     #make sure user is not persisted in database
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect "/comic"
+    if user_persists
+      redirect "/registrations/signup", flash[:error] = "User account already exists please sign up for a new account"
     else
-    	@error = "error encountered could not commit to database"
-    	erb :error
+      @user = User.new(user_params)
+      if @user.save
+        session[:user_id] = @user.id
+        redirect "/comic"
+      else
+    	  flash[:error] = "error encountered could not commit to database"
+      end
     end
   end
 
