@@ -12,7 +12,7 @@ class UserController < ApplicationController
   	if user_persists
   		redirect "/comic"
   	else
-      redirect "/registrations/signup", flash[:error] = "User does not exist please sign up"  
+      redirect "/registrations/signup", flash[:login_error] = "User does not exist please sign up"  
   	end
   end
 
@@ -20,14 +20,14 @@ class UserController < ApplicationController
   post "/signup" do
     #make sure user is not persisted in database
     if user_persists
-      redirect "/registrations/signup", flash[:error] = "User account already exists please sign up for a new account"
+      redirect "/registrations/signup", flash[:user_exists_error] = "User account already exists please sign up for a new account"
     else
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
         redirect "/comic"
       else
-    	  flash[:error] = "error encountered could not commit to database"
+    	  redirect "registrations/signup", flash[:blank_field_error] = "Field cannot be left blank"
       end
     end
   end
