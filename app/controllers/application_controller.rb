@@ -11,17 +11,37 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
     register Sinatra::RedirectWithFlash
     set :session_secret, 'mission_impossible'
+    end
 
-    
-  end
-
-  get '/' do
+  get "/" do
   	erb :home
-  end  
+  end 
 
-  get '/users' do
-    erb :'/users/home'
-  end
+  helpers do
+    def current_user
+     User.find(session[:user_id])
+    end
+
+    def is_logged_in?
+     !!session[:user_id] 
+    end
+
+    def redirect_if_not_logged_in
+      if !is_logged_in?
+        redirect "/sessions/login", flash[:error] = "User is not logged in" 
+      end 
+    end
+
+    def user_persists
+      user = User.find_by(email: params[:email])
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+      end
+    end
+
+
+  end 
+
 end
 
 #use controller to hold info that is relevent to all controllers

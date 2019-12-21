@@ -3,15 +3,18 @@ require 'byebug'
 class ComicBookController < ApplicationController
 
   get "/comic" do
+    redirect_if_not_logged_in
     @comics = Comic.all
-    erb :"/comics/index"
+    erb :"comics/index"
   end
 
    get "/comic/new" do
+    redirect_if_not_logged_in
   	erb :"/comics/new"
   end
 
   post "/comic" do
+    redirect_if_not_logged_in
     comic = Comic.new(user_params)
     if comic.save
       redirect "/comic"
@@ -22,16 +25,19 @@ class ComicBookController < ApplicationController
   end
 
   get "/comic/:id" do
+    redirect_if_not_logged_in
     @comic = Comic.find(params[:id])
     erb :"/comics/show"
   end
 
   get "/comic/:id/edit" do
+    redirect_if_not_logged_in
     @comic = Comic.find(params[:id])
     erb :"/comics/edit"
   end
 
   patch "/comic/:id" do
+    redirect_if_not_logged_in
     @comic = Comic.find(params[:id])
     @comic.publisher = params[:publisher]
     @comic.year = params[:year]
@@ -46,12 +52,12 @@ class ComicBookController < ApplicationController
   end
 
   delete "/comic/:id" do
+    redirect_if_not_logged_in
     @comic = Comic.find_by(params[:id])
     @comic.delete
     redirect to '/comic'
   end
 
-  
   private
   def user_params
   	{publisher: params[:publisher], year: params[:year],
