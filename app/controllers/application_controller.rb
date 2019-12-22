@@ -34,7 +34,7 @@ class ApplicationController < Sinatra::Base
       end 
     end
 
-    def view_update_authorized?
+    def user_view_update_authorized?
       if current_user.comics.find_by(:id => params[:id])  
         @comic = current_user.comics.find_by(:id => params[:id])
       end

@@ -25,19 +25,16 @@ class ComicBookController < ApplicationController
 
   get "/comic/:id" do
     redirect_if_not_logged_in
-    if view_update_authorized? 
+    if user_view_update_authorized?
       erb :"/comics/show"
     else
       redirect "/comic"
-    end 
-
-    #@comic = Comic.find(params[:id])
-    
+    end  
   end
 
   get "/comic/:id/edit" do
     redirect_if_not_logged_in
-    if view_update_authorized?
+    if user_view_update_authorized?
       erb :"/comics/edit"
     else
       redirect "/comic"
@@ -59,11 +56,12 @@ class ComicBookController < ApplicationController
     redirect "/comic/#{@comic.id}"
   end
 
-  delete "/comic/:id" do
+  get "/comic/:id/delete" do
     redirect_if_not_logged_in
-    @comic = Comic.find_by(params[:id])
-    @comic.delete
-    redirect to '/comic'
+    if user_view_update_authorized?
+      @comic.delete
+    end
+      redirect to '/comic'
   end
 
   private
@@ -72,6 +70,5 @@ class ComicBookController < ApplicationController
      issue_num: params[:issue_num], cover_price: params[:cover_price],
      title: params[:title], subtitle: params[:subtitle],
      condition: params[:condition], html_link_to_dealer: params[:html_link_to_dealer], :user_id => session[:user_id]}
-     #should use helper method to determine single source of truth
   end
 end
