@@ -4,7 +4,7 @@ class ComicBookController < ApplicationController
 
   get "/comic" do
     redirect_if_not_logged_in
-    @comics = Comic.all
+    @comics = current_user.comics
     erb :"comics/index"
   end
 
@@ -19,21 +19,29 @@ class ComicBookController < ApplicationController
     if comic.save
       redirect "/comic"
     else
-      @error = "error encountered could not commit to database"
-      erb :error
+      redirect "/comic.new", flash[:error] = "User is not logged in" 
     end
   end
 
   get "/comic/:id" do
     redirect_if_not_logged_in
-    @comic = Comic.find(params[:id])
-    erb :"/comics/show"
+    if view_update_authorized? 
+      erb :"/comics/show"
+    else
+      redirect "/comic"
+    end 
+
+    #@comic = Comic.find(params[:id])
+    
   end
 
   get "/comic/:id/edit" do
     redirect_if_not_logged_in
-    @comic = Comic.find(params[:id])
-    erb :"/comics/edit"
+    if view_update_authorized?
+      erb :"/comics/edit"
+    else
+      redirect "/comic"
+    end
   end
 
   patch "/comic/:id" do

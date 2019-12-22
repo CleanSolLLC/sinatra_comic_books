@@ -18,21 +18,29 @@ class ApplicationController < Sinatra::Base
   end 
 
   helpers do
-    def current_user
-     User.find(session[:user_id])
-    end
 
     def is_logged_in?
-     !!session[:user_id] 
+     #!!session[:user_id]
+      !!current_user 
+    end
+
+    def current_user
+      @current_user ||= User.find_by(:id => session[:user_id]) if session[:user_id]
     end
 
     def redirect_if_not_logged_in
       if !is_logged_in?
-        redirect "/sessions/login", flash[:error] = "User is not logged in" 
+        redirect "/sessions/login", flash[:error] = "user is not logged in" 
       end 
     end
 
-    def user_persists
+    def view_update_authorized?
+      if current_user.comics.find_by(:id => params[:id])  
+        @comic = current_user.comics.find_by(:id => params[:id])
+      end
+    end
+
+    def user_persists?
       user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id

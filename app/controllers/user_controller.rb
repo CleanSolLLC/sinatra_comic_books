@@ -10,7 +10,7 @@ class UserController < ApplicationController
 
   post "/login" do
     #validate for blank fields req user to enter values
-  	if user_persists
+  	if user_persists?
   		redirect "/comic"
   	else
       redirect "/registrations/signup", flash[:error] = "User does not exist please sign up"  
@@ -20,7 +20,7 @@ class UserController < ApplicationController
 
   post "/signup" do
     #make sure user is not persisted in database
-    if user_persists
+    if user_persists?
       redirect "/registrations/signup", flash[:error] = "User account already exists please sign up for a new account"
     else
       @user = User.new(user_params)
