@@ -1,17 +1,8 @@
-<% if flash[:notice] %>
-    <p class="notice"><%= flash[:notice] %>
-<% end %>
- 
-<% if flash[:login_error] %>
-    <p class="error"><%= flash[:login_error] %>
-<% end %>
-
-<% if flash[:user_exists_error] %>
-    <p class="error"><%= flash[:user_exists_error] %>
-<% end %>
-
-<% if flash[:blank_field_error] %>
-    <p class="error"><%= flash[:blank_field_error] %>
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
 <% end %>
 
 <%=yield%>

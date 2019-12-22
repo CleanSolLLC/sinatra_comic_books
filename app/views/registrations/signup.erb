@@ -1,11 +1,11 @@
-<%if flash[:user_exists_error]%>
-	<p> Or <a href="/sessions/login">Log In</a> 
+<%if flash[:error]%>
+	<p> or <a href="/sessions/login">retry logging in</a> 
 <%end%>
 
 <h1>Please Sign Up Below:</h1>
 
 <form method="post" action="/signup">
-    <p><label for="username">Screen Name:</label>
+    <p><label for="username">User Name:</label>
     <input type="text" id="screen_name" name="username"></p>
     <p><label for="email">Email:</label>
     <input type="text" id="email" name="email"></p>

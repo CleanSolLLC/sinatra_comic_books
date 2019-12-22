@@ -28,7 +28,10 @@ class UserController < ApplicationController
         session[:user_id] = @user.id
         redirect "/comic"
       else
-        signup_error
+        errors = @user.errors.messages
+        errors.each_pair do |k,v|
+        redirect "registrations/signup", flash[:error] = "#{k.to_s} #{v.join}"
+        end
       end
     end
   end

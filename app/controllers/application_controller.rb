@@ -39,9 +39,16 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-
-  end 
-
+    def signup_error
+      errors = @user.errors.messages
+      i=0
+      errors.each_pair do |k,v|
+        flash[:error[i]] = "#{k.to_s} #{v.join}"
+        i+=1
+      end
+      redirect "registrations/signup"
+    end 
+  end
 end
 
 #use controller to hold info that is relevent to all controllers
