@@ -1,11 +1,16 @@
-b,
-strong {
-  font-weight: bold;
+html {
+  /*background-color:#214c84;*/
+  background-blend-mode:overlay;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  /*background-image:url(../../assets/img/image4.jpg);*/
+  /*background-repeat:no-repeat;*/
+  /*background-size:cover;*/
+  height:100%;
 }
-dfn {
-  font-style: italic;
+
+body {
+  background-color:transparent;
 }
-h1 {
-  margin: .67em 0;
-  font-size: 2em;
-}
+
