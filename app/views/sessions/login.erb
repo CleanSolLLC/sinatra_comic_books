@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+<DOCTYPE! html>
 
 <body>
 	<div class="container">
@@ -8,17 +7,12 @@
 				<br />
 
 		<%if flash[:error]%>
-			<p> or <a href="/sessions/login">retry logging in</a> 
+			<p> or <a href="/sessions/login">retry logging in</a></p> 
 		<%end%>
 
-		<h3>Please Log In:</h3>
+		<h4>Please Log In:</h4>
 
 		<form method="post" action="/login">
-
-			<div class="form-group"> 
-		    	<p><label for="FormUserName">User Name:</label>
-		    	<input type="text" class="form-control" id="FormUserName" name="username"required></p>
-		    </div>
 
 			<div class="form-group">
 		    	<p><label for="FormEmail">Email:</label>
@@ -40,3 +34,4 @@
   	 </div> 
 
 </body>
+</html>

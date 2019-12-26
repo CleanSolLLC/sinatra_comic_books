@@ -14,7 +14,7 @@ class UserController < ApplicationController
   		redirect "/comic"
   	else
       redirect "/registrations/signup", flash[:error] = "User does not exist please sign up"  
-  	end
+    end
   end
 
 

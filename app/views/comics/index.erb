@@ -1,29 +1,44 @@
+<DOCTYPE! html>
+
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="comic-index">
 <%if is_logged_in? %>
 
-	<h2>Welcome <%= current_user.username%>!</h2>
+	<h4>Hi <%= current_user.username%>!</h4>
 
 	<%if @comics == [] %>
-		<h3>You have no comics listed</h3>  
+		<h4>You have no comics listed</h4>  
 		<a href = "/comic/new">Please Enter New Comic</a>
 	<%else%>
-		<h2> Here is a list of your comics!</h2>
-		<h4>Select a comic to view more details</h4>
-		<p><h4><a href="/comic/new">Add new comic</a></p></h4></p>
-		<p><h4><a href="/logout">Log out</a></p></h4></p>
+		<h5> Here is a list of your comics!</h5>
+		<h6><b>Select a comic to view more details<b></h6><br>
 		
 		<% @comics.each do |comic| %>
 	    	<ul>
 	    		<li><a href = "/comic/<%= comic.id %>"><%= comic.title %> - 
 	    		<%= comic.subtitle %> - <%= comic.publisher %> - <%= comic.year %>	
-	    		</a></li>  	         	
-	    	</ul> 
+	    		</a></li> 	         	
+	    	</ul> <br>
 	    <%end%>
+
+	    <p><a href="/comic/new">Add new comic</a></p></p>
+		<p><a href="/logout">Log out</a></p></p>
 	
 	<%end%> 
 
 <%else%>
 	<a href="/sessions/login">Please Log In</a>
 <%end%>
+
+<img class="img-responsive" src="/images/captainamerica.jpg" alt="captainamerica"> 
+
+</div>
+
+</body>
+</html>
 
 
 

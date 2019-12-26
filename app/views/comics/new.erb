@@ -1,29 +1,68 @@
-<h2> Enter Comic Book Information </h2>
+<DOCTYPE! html>
 
-<form method="Post" action="/comic" >
-	<p><label for="publisher">Publisher:</label>
-    <input type="text" id="publisher" name="publisher"></p>
+<body>
 
-    <p><label for="year">Year:</label>
-    <input type="text" id="year" name="year"></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <br />
 
-    <p><label for="issue_number">Issue Number:</label>
-    <input type="text" id="issue_num" name="issue_num"></p>
+        <%if flash[:error]%>
+            <p> or <a href="/sessions/login">RETRY LOGGING IN</a> 
+        <%end%>
 
+<h4> Enter Comic Book Information </h4>
+
+
+<form method="Post" action="/comic">
+    
+    <div class="form-group">
+	   <p><label for="publisher">Publisher:</label>
+        <input type="text" class="form-control" id="publisher" name="publisher"required></p>
+    </div> 
+
+    <div class="form-group">
+        <p><label for="year">Year:</label>
+        <input type="text" class="form-control" id="year" name="year"></p>
+    </div>
+
+    <div class="form-group">
+        <p><label for="issue_number">Issue Number:</label>
+        <input type="text" class="form-control" id="issue_num" name="issue_num"></p>
+    </div>
+
+    <div class="form-group">
         <p><label for="cover_price">Cover Price:</label>
-    <input type="text" id="cover_price" name="cover_price"></p>
+        <input type="text" class="form-control" id="cover_price" name="cover_price"></p>
+    </div>
 
-	<p><label for="title">Title:</label>
-    <input type="text" id="title" name="title"></p>
+	<div class="form-group">
+        <p><label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title"></p>
+    </div>
 
-    <p><label for="subtitle">Subtitle:</label>
-    <input type="text" id="subtitle" name="subtitle"></p>
+    <div class="form-group">
+        <p><label for="subtitle">Subtitle:</label>
+        <input type="text" class="form-control" id="subtitle" name="subtitle"></p>
+    </div>
 
+    <div class="form-group">
     <p><label for="content">Condition:</label>
     <input type="text" id="condition" name="condition"></p>
 
-    <p><label for="content">Link to Comic Book Dealer:</label>
-    <input type="text" id="html_link_to_dealer" name="html_link_to_dealer"></p>
+    <div class="form-group">
+        <p><label for="content">Link to Comic Book Dealer:</label>
+        <input type="text" class="form-control" id="html_link_to_dealer" name="html_link_to_dealer"></p>
+    </div>
 
-    <input type="submit" id="submit" value="submit"></>
+    <div class="form-group">
+        <input type="submit" id="submit" value="submit"></>
+    </div>
+
 </form>
+</div>
+
+</body>
+</body>
+</html>
+
