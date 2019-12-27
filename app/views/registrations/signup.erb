@@ -3,13 +3,14 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3">
+			<div class="col-lg-4">
 				<br />
 
 		<%if flash[:error]%>
 			<p> or <a href="/sessions/login">Retry Logging In</a> 
 		<%end%>
 
+		<br>
 		<h4>Please Sign Up Below:</h4>
 
 		<form method="post" action="/signup">

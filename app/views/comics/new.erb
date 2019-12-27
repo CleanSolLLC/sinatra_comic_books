@@ -1,32 +1,91 @@
-<DOCTYPE! html>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
 
-<body>
+</head> 
+<body> 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <br />
+<div class="container">
+    <h4>Enter Comic Book Information</h4> 
+    <form action="Post" action="/comic" class="form-horizontal"> 
 
-        <%if flash[:error]%>
-            <p> or <a href="/sessions/login">RETRY LOGGING IN</a> 
-        <%end%>
+        <div class="form-group"> 
+            <label class="control-label col-sm-2" for="publisher">Publisher:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="publisher" name="publisher" required placeholder="Publisher"> 
+            </div> 
+        </div> 
 
-<h4> Enter Comic Book Information </h4>
+        <div class="form-group"> 
+            <label class="control-label col-sm-2" for="publisher">Year:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="year" name="year" required placeholder="Year Published"> 
+            </div> 
+        </div>        
 
+<!-- 
+        <div class="form-group row">
+            <p><label for="inputYear" class="col-sm-2 col-form-label"><b>Year:</b></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputYear" name="year"required placeholder="year"></p>
+            </div>
+        </div> 
+        
+        <div class="form-group row">
+            <p><label for="inputIssueNumber" class="col-sm-2 col-form-label"><b>Issue Number:</b></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputIssueNumber" name="issue_num"required placeholder="issue number"></p>
+            </div>
+        </div>
 
-<form method="Post" action="/comic">
-    
-    <div class="form-group">
+        <div class="form-group row">
+            <p><label for="inputCoverPrice" class="col-sm-2 col-form-label"><b>Cover Price:</b></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCoverPrice" name="cover_price"required placeholder="cover price"></p>
+            </div>
+        </div>       
+        
+
+        <div class="form-group row">
+            <p><label for="inputTitle" class="col-sm-2 col-form-label"><b>Title:</b></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputTitle" name="title"required placeholder="title"></p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <p><label for="inputSubtitle" class="col-sm-2 col-form-label"><b>Subtitle:</b></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputSubtitle" name="subtitle"required placeholder="subtitle"></p>
+            </div>
+        </div> 
+        
+        <div class="form-group row">
+            <p><label for="inputCondition" class="col-sm-2 col-form-label"><b>Condition:</b></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCondition" name="condition"required placeholder="condition"></p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <p><label for="inputLinktoComicBookDealer" class="col-sm-2 col-form-label"><b>See your Comic!:</b></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputLinktoComicBookDealer" name="html_link_to_dealer"required placeholder="link to comic book dealer"></p>
+            </div>
+        </div> 
+
+</div>  -->  
+    <!-- <div class="form-group row">
 	   <p><label for="publisher">Publisher:</label>
         <input type="text" class="form-control" id="publisher" name="publisher"required></p>
     </div> 
 
-    <div class="form-group">
+    <div class="form-group row">
         <p><label for="year">Year:</label>
         <input type="text" class="form-control" id="year" name="year"></p>
     </div>
 
-    <div class="form-group">
+    <div class="form-group row">
         <p><label for="issue_number">Issue Number:</label>
         <input type="text" class="form-control" id="issue_num" name="issue_num"></p>
     </div>
@@ -53,16 +112,15 @@
     <div class="form-group">
         <p><label for="content">Link to Comic Book Dealer:</label>
         <input type="text" class="form-control" id="html_link_to_dealer" name="html_link_to_dealer"></p>
-    </div>
+    </div> -->
 
-    <div class="form-group">
+<!--     <div class="form-group">
         <input type="submit" id="submit" value="submit"></>
     </div>
 
-</form>
 </div>
 
+</form>
 </body>
-</body>
-</html>
+</html> -->
 

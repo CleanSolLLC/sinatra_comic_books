@@ -10,10 +10,10 @@
 	<h4>Hi <%= current_user.username%>!</h4>
 
 	<%if @comics == [] %>
-		<h4>You have no comics listed</h4>  
-		<a href = "/comic/new">Please Enter New Comic</a>
+		<h4>You have no comics listed</h4><br>  
+		<h5><a href = "/comic/new">Please Enter New Comic</a></h5><br>
 	<%else%>
-		<h5> Here is a list of your comics!</h5>
+		<h4> Here is a list of your comics!</h4>
 		<h6><b>Select a comic to view more details<b></h6><br>
 		
 		<% @comics.each do |comic| %>
@@ -33,9 +33,9 @@
 	<a href="/sessions/login">Please Log In</a>
 <%end%>
 
-<img class="img-responsive" src="/images/captainamerica.jpg" alt="captainamerica"> 
-
 </div>
+
+<img class="img-responsive" src="/images/collage.jpeg" alt="captainamerica">
 
 </body>
 </html>

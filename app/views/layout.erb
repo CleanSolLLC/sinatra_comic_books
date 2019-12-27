@@ -2,22 +2,24 @@
 
 <head>
 
-<link href="/stylesheets/css/bootstrap.css" rel="stylesheet">
-<!------ Include the above in your HEAD tag ---------->
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
 
 </head>
 
 
 </head>
-
-<% flash.keys.each do |type| %>
-  <div data-alert class="flash <%= type %> alert-danger col-md-4 col-md-offset-4" align="center ">
-    <%= flash[type] %>
-   </div>
+<div class="container">
+	<div class="row">
+		<% flash.keys.each do |type| %>
+  		<div data-alert class="flash <%= type %> alert-danger col-md-3">
+    		<%= flash[type] %>
+    		<% end %>
+   		</div>
 	</div>
-		</div>
-  			</div>
-	<% end %>
+</div>	
 
 <%=yield%>
 
