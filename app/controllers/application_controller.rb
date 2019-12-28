@@ -47,6 +47,10 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def comic_persists?
+      comic = Comic.find_by(params)
+    end
+
     def signup_error
       errors = @user.errors.messages
       i=0

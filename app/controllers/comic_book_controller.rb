@@ -4,7 +4,7 @@ class ComicBookController < ApplicationController
 
   get "/comic" do
     redirect_if_not_logged_in
-    @comics = current_user.comics
+    @comics = @current_user.comics
     erb :"comics/index"
   end
 
@@ -15,11 +15,16 @@ class ComicBookController < ApplicationController
 
   post "/comic" do
     redirect_if_not_logged_in
-    comic = Comic.new(user_params)
-    if comic.save
-      redirect "/comic"
+    #check to see if comic persists in the database
+    if !comic_persists?
+      comic = Comic.new(user_params)
+      if comic.save
+        redirect "/comic"
+      else
+        redirect "/comic.new", flash[:error] = "User is not logged in" 
+      end
     else
-      redirect "/comic.new", flash[:error] = "User is not logged in" 
+      redirect "/comic", flash[:error] = "You have added this comic to your colletion already"
     end
   end
 
@@ -69,6 +74,6 @@ class ComicBookController < ApplicationController
   	{publisher: params[:publisher], year: params[:year],
      issue_num: params[:issue_num], cover_price: params[:cover_price],
      title: params[:title], subtitle: params[:subtitle],
-     condition: params[:condition], html_link_to_dealer: params[:html_link_to_dealer]}
+     condition: params[:condition], html_link_to_dealer: params[:html_link_to_dealer], :user_id => session[:user_id]}
   end
 end
