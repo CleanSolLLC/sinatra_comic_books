@@ -4,7 +4,15 @@
 	<title></title>
 </head>
 <body>
-	<h3>Here is your comic book listing!</h3>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-7">
+			<br />
+
+	<div class="comic-index">
+
+	<h3><%= current_user.username%> Here is your comic book listing!</h3>
 	<h4><%= @comic.title %> - <%= @comic.subtitle %></h4>
 	Publisher:   <%= @comic.publisher %> &#169;<%= @comic.year %><br>
 	Issue Num :  <%= @comic.issue_num %><br>
@@ -25,9 +33,17 @@
   	<a href="/comic">View Your List of Comics</a><p>
 	<a href="/logout">Log Out</a><p>	
 
-	
-		<img class="img-responsive" src="/images/wonderwoman.jpeg" alt="wonderwoman"> 
-  	 	<img class="img-responsive" src="/images/superman.jpeg" alt="superman"> 
+			<div class="container">
+				<div class="row">
+  	
+				<img class="img-responsive" src="/images/wonderwoman.jpeg" alt="wonderwoman"> 
+  	 			<img class="img-responsive" src="/images/superman.jpeg" alt="superman"> 
+  	  		</div>
+
+  	 </div>
+  	</div>
+ </div>
+
  
 </body>
 </html>

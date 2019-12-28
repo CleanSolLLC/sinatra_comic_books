@@ -1,4 +1,94 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+
+</head> 
+<body> 
+
+<div class="container">
+    <h3>Edit Comic Book Information</h3><br> 
+
+        <form  method="Post" action="/comic/<%=@comic.id%>" class="form-horizontal">
+        <input id="hidden" type="hidden" name="_method" value="patch">
+
+        <div class="form-group"> 
+            <label class="control-label col-sm-2" for="formPublisher">Publisher:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="formPublisher" name="publisher" value="<%= @comic.publisher %>">
+            </div> 
+        </div> 
+
+        <div class="form-group"> 
+            <label class="control-label col-sm-2" for="formYear">Year:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="formYear" name="year" value="<%= @comic.year %>">
+            </div> 
+        </div> 
+
+        <div class="form-group"> 
+            <label class="control-label col-sm-2" for="formIssueNum">Issue Number:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="formIssueNum" name="issue_num" value="<%= @comic.issue_num %>">
+            </div> 
+        </div>                
+
+        <div class="form-group"> 
+            <label class="control-label col-sm-2" for="formCoverPrice">Cover Price:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="formCoverPrice" name="cover_price" value="<%= @comic.cover_price %>">
+            </div> 
+        </div>  
+
+         <div class="form-group"> 
+            <label class="control-label col-sm-2" for="formTitle">Title:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="formTitle" name="title" value="<%= @comic.title %>"> 
+            </div> 
+        </div>      
+        
+         <div class="form-group"> 
+            <label class="control-label col-sm-2" for="formSubtitle">Subtitle:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="formSubtitle" name="subtitle" value="<%= @comic.subtitle %>">
+            </div> 
+        </div> 
+
+         <div class="form-group"> 
+            <label class="control-label col-sm-2" for="formCondition">Condition:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="formCondition" name="condition" value="<%= @comic.condition %>"> 
+            </div> 
+        </div>   
+
+         <div class="form-group"> 
+            <label class="control-label col-sm-2" for="formLinktoDealer">See Your Comic!:</label> 
+            <div class="col-sm-6"> 
+                <input class="form-control" type="text" id="formLinktoDealer" name="html_link_to_dealer" value="<%= @comic.html_link_to_dealer %>">
+            </div> 
+        </div> 
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-1"></div>
+                    <p><button type="submit" class ="btn btn-primary">Submit</button></p><br>
+        </div> 
+    </div>
+
+    </form>     
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1"></div>
+        <img class="img-responsive" src="/images/collage.jpeg" alt="justice league"> 
+    </div>      
+
+    </div>
+
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -6,8 +96,6 @@
 <body>
 	<h2> Edit Comic Book Information </h2>
 
-<form method="Post" action="/comic/<%=@comic.id%>">
-	<input id="hidden" type="hidden" name="_method" value="patch">
 
 	<p><label for="publisher">Publisher:</label>
     <input type="text" name="publisher" value="<%= @comic.publisher %>"></p>
@@ -39,4 +127,4 @@
 </text>
 
 </body>
-</html>
+</html> -->

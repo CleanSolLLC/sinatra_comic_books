@@ -4,17 +4,23 @@
 	<title></title>
 </head>
 <body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-7">
+			<br />
+
 	<div class="comic-index">
 <%if is_logged_in? %>
 
-	<h4>Hi <%= current_user.username%>!</h4>
+	<h2>Hi <%= current_user.username%>!</h2>
 
 	<%if @comics == [] %>
-		<h4>You have no comics listed</h4><br>  
+		<h3>You have no comics listed</h3><br>  
 		<h5><a href = "/comic/new">Please Enter New Comic</a></h5><br>
 	<%else%>
-		<h4> Here is a list of your comics!</h4>
-		<h6><b>Select a comic to view more details<b></h6><br>
+		<h3> Here is a list of your comics!</h3>
+		<h4><b>Select a comic to view more details<b></h4><br>
 		
 		<% @comics.each do |comic| %>
 	    	<ul>
@@ -24,8 +30,14 @@
 	    	</ul>
 	    <%end%>
 
-	    <p><a href="/comic/new">Add new comic</a></p></p>
-		<p><a href="/logout">Log out</a></p></p>
+	    <div class="container">
+	    		<div class="row">
+		<div class="col-lg-7">
+			<br />
+	    	<p><a href="/comic/new">Add new comic</a></p>
+			<p><a href="/logout">Log out</a></p>
+		</div>
+	</div>
 	
 	<%end%> 
 
@@ -35,7 +47,13 @@
 
 </div>
 
-<img class="img-responsive" src="/images/collage.jpeg" alt="justice league">
+<div class="container">
+	<div class=:row">
+  <img class="img-responsive" src="/images/storm.jpeg" alt="storm">
+	</div>
+</div>
+
+</div>
 
 </body>
 </html>
