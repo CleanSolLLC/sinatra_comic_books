@@ -12,6 +12,7 @@ gem 'require_all'
 gem 'sinatra-redirect-with-flash'
 gem 'sinatra-flash'
 gem 'rack-flash3'
+gem 'tty-tree'
 
 group :test, :development do
  gem 'pry'

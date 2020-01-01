@@ -47,6 +47,7 @@ GEM
     sqlite3 (1.4.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    tty-tree (0.3.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     zeitwerk (2.2.2)
@@ -66,6 +67,7 @@ DEPENDENCIES
   sinatra-flash
   sinatra-redirect-with-flash
   sqlite3
+  tty-tree
 
 BUNDLED WITH
    2.0.2
