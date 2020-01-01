@@ -15,6 +15,7 @@ User will have the ability to:
 * Create something similar to a comic book exchange
 * Create GUI that resembles more of a website
 * Video walkthough on Youtube: https://www.youtube******
+* Pleae visit my blog on Medium: https://www.medium******
 
 
 ## Set Up
@@ -34,7 +35,8 @@ User will have the ability to:
 2. Fork the repository and clone it.
 3. Run bundle install to install gems (If you don't have bundler, first run gem install bundler)
 4. Set up the database with rake db:migrate.
-5. There is seed data to get you started if you so choose run rake db:seed.
+5. There is seed data to get you started if you choose run rake db:seed.
+6. See login credentails below.
 6. Run shotgun to run the app locally at http://localhost:9393/.
 
 ```
@@ -100,6 +102,11 @@ sinatra_comic_books
     ├── javascripts
     └── stylesheets
 ```
+## Login
+
+The Seed data uses the following login:
+username: GIJane@GIJaneabc123.com 
+password:GIJane@GIJaneabc123.com 
 
 ## Contributing
 
