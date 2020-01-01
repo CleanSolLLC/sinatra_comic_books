@@ -9,12 +9,20 @@ User will have the ability to:
 * Add, edit or delete comic books.
 * User can only create, view, edite or delete comic book listings from their own account.
 
+## Future improvements planned:
+
+* Create an option if the user wants to list their comic book publically
+* Create something similar to a comic book exchange
+* Create GUI that resembles more of a website
+* Video walkthough on Youtube: https://www.youtube******
+
 
 ## Set Up
 
 ### Prerequisites
 * Ruby
 * SQLite3
+* Boostrap https://getbootstrap.com/docs/4.4/getting-started/introduction/
 
 ## Usage
 
@@ -26,9 +34,16 @@ The app uses the dotenv gem for environment variables (currently only one for th
 Run shotgun to run the app locally at http://localhost:9393/. That should be it!
 
 
+## Development & Usage
+	
+### Installation
 
+* Fork the repository and clone it.
+* Run bundle install to install gems (If you don't have bundler, first run gem install bundler)
+* Set up the database with rake db:migrate.
+* The app uses the dotenv gem for environment variables (currently only one for the session_secret). Create a .env file in the root of the app and add SESSION_SECRET=your_secret (replace the your_secret with your own secret. Check Sinatra's "Session Secret Generation" section in their Readme for recommendations.
+Run shotgun to run the app locally at http://localhost:9393/. That should be it!
 
-## Development
 ```
 sinatra_comic_books
 ├── Gemfile
@@ -93,9 +108,6 @@ sinatra_comic_books
     ├── javascripts
     └── stylesheets
 ```
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
