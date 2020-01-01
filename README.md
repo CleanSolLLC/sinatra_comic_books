@@ -24,25 +24,18 @@ User will have the ability to:
 * SQLite3
 * Boostrap https://getbootstrap.com/docs/4.4/getting-started/introduction/
 
-## Usage
-
-Installation
-Fork the repository and clone it.
-Run bundle install to install gems (If you don't have bundler, first run gem install bundler)
-Set up the database with rake db:migrate.
-The app uses the dotenv gem for environment variables (currently only one for the session_secret). Create a .env file in the root of the app and add SESSION_SECRET=your_secret (replace the your_secret with your own secret. Check Sinatra's "Session Secret Generation" section in their Readme for recommendations.
-Run shotgun to run the app locally at http://localhost:9393/. That should be it!
 
 
 ## Development & Usage
 	
 ### Installation
 
-* Fork the repository and clone it.
-* Run bundle install to install gems (If you don't have bundler, first run gem install bundler)
-* Set up the database with rake db:migrate.
-* The app uses the dotenv gem for environment variables (currently only one for the session_secret). Create a .env file in the root of the app and add SESSION_SECRET=your_secret (replace the your_secret with your own secret. Check Sinatra's "Session Secret Generation" section in their Readme for recommendations.
-Run shotgun to run the app locally at http://localhost:9393/. That should be it!
+1. This repository uses the BootstrapCDN to utilize HTML formatting
+2. Fork the repository and clone it.
+3. Run bundle install to install gems (If you don't have bundler, first run gem install bundler)
+4. Set up the database with rake db:migrate.
+5. There is seed data to get you started if you so choose run rake db:seed.
+6. Run shotgun to run the app locally at http://localhost:9393/.
 
 ```
 sinatra_comic_books
@@ -69,7 +62,6 @@ sinatra_comic_books
 │       ├── home.erb
 │       ├── index.erb
 │       ├── layout.erb
-│       ├── layout_hold.erb
 │       ├── registrations
 │       │   └── signup.erb
 │       └── sessions
