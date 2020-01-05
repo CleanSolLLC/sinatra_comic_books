@@ -105,8 +105,8 @@ sinatra_comic_books
 ## Login
 
 The Seed data uses the following login:
-username: GIJane@GIJaneabc123.com 
-password:GIJane@GIJaneabc123.com 
+username: GIJane@abc123.com 
+password:GIJane@abc123.com 
 
 ## Contributing
 
