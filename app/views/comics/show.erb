@@ -22,15 +22,15 @@
 	<p><a href = "<%= @comic.html_link_to_dealer %>"target="_blank">See Your Comic Book Online</a></p>
 
 	<h6><b>Select one of the following:</b></h6>
-	<a href="/comic/new">Add A New Comic Book</a><br>
-	<a href="/comic/<%=@comic.id%>/edit">Edit This Comic Book</a>
+	<a href="/comics/new">Add A New Comic Book</a><br>
+	<a href="/comics/<%=@comic.id%>/edit">Edit This Comic Book</a>
 
-	<form action="/comic/<%= @comic.id%>/delete" method="post">
+	<form action="/comics/<%= @comic.id%>/delete" method="post">
     	<input id="hidden" type="hidden" name="_method" value="delete">
- 		<a href="/comic/<%=@comic.id%>/delete">Delete This Comic Book</a>
+ 		<a href="/comics/<%=@comic.id%>/delete">Delete This Comic Book</a>
   	</form>
 
-  	<a href="/comic">View Your List of Comics</a><p>
+  	<a href="/comics">View Your List of Comics</a><p>
 	<a href="/logout">Log Out</a><p>	
 
 			<div class="container">

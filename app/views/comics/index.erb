@@ -17,14 +17,14 @@
 
 	<%if @comics == [] %>
 		<h3>You have no comics listed</h3><br>  
-		<h5><a href = "/comic/new">Please Enter New Comic</a></h5><br>
+		<h5><a href = "/comics/new">Please Enter New Comic</a></h5><br>
 	<%else%>
 		<h3> Here is a list of your comics!</h3>
 		<h4><b>Select a comic to view more details<b></h4><br>
 		
 		<% @comics.each do |comic| %>
 	    	<ul>
-	    		<li><a href = "/comic/<%= comic.id %>"><%= comic.title %> - 
+	    		<li><a href = "/comics/<%= comic.id %>"><%= comic.title %> - 
 	    		<%= comic.subtitle %> - <%= comic.publisher %> - <%= comic.year %>	
 	    		</a></li> 	         	
 	    	</ul>
@@ -34,7 +34,7 @@
 	    		<div class="row">
 		<div class="col-lg-7">
 			<br />
-	    	<p><a href="/comic/new">Add new comic</a></p>
+	    	<p><a href="/comics/new">Add new comic</a></p>
 			<p><a href="/logout">Log out</a></p>
 		</div>
 	</div>

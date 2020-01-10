@@ -2,51 +2,51 @@ require 'pry-nav'
 require 'byebug'
 class ComicBookController < ApplicationController
 
-  get "/comic" do
+  get "/comics" do
     redirect_if_not_logged_in
     @comics = @current_user.comics
     erb :"comics/index"
   end
 
-   get "/comic/new" do
+   get "/comics/new" do
     redirect_if_not_logged_in
   	erb :"/comics/new"
   end
 
-  post "/comic" do
+  post "/comics" do
     redirect_if_not_logged_in
     #check to see if comic persists in the database
     if !comic_persists?
       comic = Comic.new(user_params)
       if comic.save
-        redirect "/comic"
+        redirect "/comics"
       else
-        redirect "/comic.new", flash[:error] = "User is not logged in" 
+        redirect_if_not_logged_in
       end
     else
-      redirect "/comic", flash[:error] = "You have added this comic to your colletion already"
+      redirect "/comics", flash[:error] = "You have added this comic to your colletion already"
     end
   end
 
-  get "/comic/:id" do
+  get "/comics/:id" do
     redirect_if_not_logged_in
     if user_view_update_authorized?
       erb :"/comics/show"
     else
-      redirect "/comic"
+      redirect "/comics"
     end  
   end
 
-  get "/comic/:id/edit" do
+  get "/comics/:id/edit" do
     redirect_if_not_logged_in
     if user_view_update_authorized?
       erb :"/comics/edit"
     else
-      redirect "/comic"
+      redirect "/comics"
     end
   end
 
-  patch "/comic/:id" do
+  patch "/comics/:id" do
     redirect_if_not_logged_in
     @comic = Comic.find(params[:id])
     @comic.publisher = params[:publisher]
@@ -58,15 +58,15 @@ class ComicBookController < ApplicationController
     @comic.condition = params[:condition]
     @comic.html_link_to_dealer = params[:html_link_to_dealer]
     @comic.save
-    redirect "/comic/#{@comic.id}"
+    redirect "/comics/#{@comic.id}"
   end
 
-  get "/comic/:id/delete" do
+  get "/comics/:id/delete" do
     redirect_if_not_logged_in
     if user_view_update_authorized?
       @comic.delete
     end
-      redirect to '/comic'
+      redirect to '/comics'
   end
 
   private

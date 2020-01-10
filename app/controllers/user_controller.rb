@@ -10,7 +10,7 @@ class UserController < ApplicationController
 
   post "/login" do
   	if user_persists?
-  		redirect "/comic"
+  		redirect "/comics"
   	else
       redirect "/registrations/signup", flash[:error] = "User does not exist please sign up"  
   	end
@@ -24,7 +24,7 @@ class UserController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        redirect "/comic"
+        redirect "/comics"
       else
         signup_error
       end

@@ -14,8 +14,8 @@ User will have the ability to:
 * Create an option if the user wants to list their comic book publically
 * Create something similar to a comic book exchange
 * Create GUI that resembles more of a website
-* Video walkthough on Youtube: https://www.youtube******
-* Pleae visit my blog on Medium: https://www.medium******
+* Video walkthough on Youtube: https://www.youtube.com/watch?v=eB9IbeH5HXo
+* Pleae visit my blog on Medium: https://medium.com/@mamark90/spiderman-to-sinatra-f62d0d5e317f
 
 
 ## Set Up
